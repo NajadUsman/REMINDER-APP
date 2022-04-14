@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Login Form | CodingLab </title>--->
+    <link rel="stylesheet" href="register.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="title">Sign Up</div>
+        <div class="input-box underline">
+          <input type="text" class="form-control" name="uname" formControlName="uname" placeholder="Enter Username" id="uname" required>
+          <div class="underline"></div>
+        </div>
+         <!-- chekking valid username -->
+         <div style="color: red;"
+         *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&this.registerForm.get('uname')?.errors">
+         invalid username</div>
+        <div class="input-box">
+          <input type="text" class="form-control" name="uid" formControlName="uid"
+          placeholder="Enter User Id" id="uid" required>
+            <div class="underline"></div>
+          </div>
+          
+          <div style="color: red;"
+          *ngIf="(this.registerForm.get('uid')?.touched||this.registerForm.get('uid')?.dirty)&&this.registerForm.get('uid')?.errors">
+          invalid User Id</div>
+        <div class="input-box">
+          <input type="password" class="form-control" name="pass" formControlName="pass"
+          placeholder="Enter Password" id="pass" required>
+          <div class="underline"></div>
+        </div>
+        
+        <div style="color: red;"
+        *ngIf="(this.registerForm.get('pass')?.touched||this.registerForm.get('pass')?.dirty)&&this.registerForm.get('pass')?.errors">
+        invalid password</div>
+        <div class="input-box button">
+          <input type="submit" name="" value="Continue">
+        </div>
+      </form>
+      <div>
+        <p style="color:black;align-items:center;display: flex;justify-content: center;">Already a user? <a routerLink="">Sign In</a></p>
+
+      </div><br>
+
+    </div>
+  </body>
+</html>
+

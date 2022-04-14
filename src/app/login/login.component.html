@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Login Form | CodingLab </title>--->
+    <link rel="stylesheet" href="login.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark ">
+      <!-- <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a> -->
+      <span class="quote text-light" style="font-weight: bold;font-size: 30px;display: flex;justify-content: center;align-items: center;">Shall I Remind You Something...!!</span>
+  </nav>
+    <div class="container">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="title">Sign In</div>
+        <div class="input-box underline">
+          <input type="text" class="form-control" name="uid" formControlName="uid" placeholder="Enter Your User Id"
+          id="login_uid" required>
+          <div class="underline"></div>
+        </div>
+        <div style="color: red;"
+        *ngIf="(this.loginForm.get('uid')?.touched||this.loginForm.get('uid')?.dirty)&&this.loginForm.get('uid')?.errors">
+        invalid User Id</div>
+
+        <div class="input-box">
+          <input type="password" class="form-control" name="pass" formControlName="pass"
+            placeholder="Enter Your Password" id="login_password" required>
+          <div class="underline"></div>
+        </div>
+
+        <div style="color: red;"
+        *ngIf="(this.loginForm.get('pass')?.touched||this.loginForm.get('pass')?.dirty)&&this.loginForm.get('pass')?.errors">
+        invalid password</div>
+
+        <div class="input-box button">
+          <input type="submit" name="" value="Continue">
+        </div>
+      </form>
+      <div>
+        <p style="color:black;align-items:center;display: flex;justify-content: center;">Not a user? <a routerLink="register">Sign Up</a></p>
+
+      </div><br>
+        <!-- <div class="option">or Connect With Social Media</div>
+        <div class="twitter">
+          <a href="#"><i class="fab fa-twitter"></i>Sign in With Twitter</a>
+        </div>
+        <div class="facebook">
+          <a href="#"><i class="fab fa-facebook-f"></i>Sign in With Facebook</a>
+        </div> -->
+    </div>
+  </body>
+</html>
+
